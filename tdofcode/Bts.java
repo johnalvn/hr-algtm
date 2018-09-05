@@ -5,46 +5,47 @@ import java.io.*;
 
 public class Bts {
 	public static int getHeight(Node root) {
+		if(root == null) {
+			return - 1;
+		}
+		return 1 + Math.max(getHeight(root.left), getHeight(root.right));
 		
-		return null;
 	}
 	
 	public static void main(String args[]){
-		// Write your code here
-		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();
+		
+		int[] a = {4,7,1,34,45,6,7,8,3,4,55,4,43,32};
 		Node root = null;
-		while (T-- > 0) {
-			int data = sc.nextInt();
-			root = insert(root, data);
+		for (int i : a) {
+			root=insert(root, i);
 		}
-		int height = getHeight(root);
-		System.out.println(height);
+		System.out.println(getHeight(root));
+	
 	}
 
 	class Node {
 		Node left, right;
 		int data;
-
-		Node(int data) {
+		public Node(int data) {
+			// TODO Auto-generated constructor stub
 			this.data = data;
 			left = right = null;
 		}
 	}
 
 	public static Node insert(Node root, int data) {
-		if (root == null) {
+		if(root == null) {
 			return new Bts().new Node(data);
-		} else {
+		}else {
 			Node cur;
-			if (data <= root.data) {
+			if(data <= root.data) {
 				cur = insert(root.left, data);
 				root.left = cur;
-			} else {
+			}else {
 				cur = insert(root.right, data);
 				root.right = cur;
 			}
 			return root;
 		}
-	}
+	}	
 }
