@@ -1,4 +1,4 @@
-package tdaysofcode.java;
+
 
 public class Bts {
 	public static int getHeight(Node root) {
@@ -13,16 +13,18 @@ public class Bts {
 		
 		int[] a = {4,7,1,34,45,6,7,8,3,4,55,4,43,32};
 		Node root = null;
-		for (int i : a) {
-			root=insert(root, i);
+		for(int i : a) {
+			root = insert(root, i);	
 		}
+		
 		System.out.println(getHeight(root));
-	
 	}
 
 	class Node {
-		Node left, right;
+		Node left;
+		Node right;
 		int data;
+		
 		public Node(int data) {
 			// TODO Auto-generated constructor stub
 			this.data = data;
@@ -42,7 +44,8 @@ public class Bts {
 				cur = insert(root.right, data);
 				root.right = cur;
 			}
-			return root;
 		}
+		
+		return root;
 	}	
 }

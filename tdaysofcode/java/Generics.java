@@ -1,4 +1,4 @@
-package tdaysofcode.java;
+
 
 public class Generics {
 	
